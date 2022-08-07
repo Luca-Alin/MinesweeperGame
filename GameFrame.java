@@ -8,7 +8,7 @@ import java.awt.event.*;
  */
 public class GameFrame extends JFrame implements ActionListener {
 
-    ImageIcon icon = new ImageIcon("images\\icon.png");
+    ImageIcon icon = new ImageIcon("images/icon.png");
 
     GrayPanel[] grayPanel = new GrayPanel[3];
     GamePanel gamePanel;

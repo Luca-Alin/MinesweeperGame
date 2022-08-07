@@ -61,26 +61,26 @@ public class GamePanel extends JPanel implements MouseInputListener {
     int flagsPlacedNumber;
 
     JButton restartButton;
-    ImageIcon happyFace = new ImageIcon("Images\\happyFace.png");
-    ImageIcon gameWon = new ImageIcon("Images\\gameWonFace.png");
-    ImageIcon gameOver = new ImageIcon("Images\\gameOverFace.png");
-    ImageIcon scaredFace = new ImageIcon("Images\\scaredFace.png");
+    ImageIcon happyFace = new ImageIcon("Images/happyFace.png");
+    ImageIcon gameWon = new ImageIcon("Images/gameWonFace.png");
+    ImageIcon gameOver = new ImageIcon("Images/gameOverFace.png");
+    ImageIcon scaredFace = new ImageIcon("Images/scaredFace.png");
 
-    ImageIcon numberOne = new ImageIcon("Images\\numberOne.png");
-    ImageIcon numberTwo = new ImageIcon("Images\\numberTwo.png");
-    ImageIcon numberThree = new ImageIcon("Images\\numberThree.png");
-    ImageIcon numberFour = new ImageIcon("Images\\numberFour.png");
-    ImageIcon numberFive = new ImageIcon("Images\\numberFive.png");
-    ImageIcon numberSix = new ImageIcon("Images\\numberSix.png");
-    ImageIcon numberSeven = new ImageIcon("Images\\numberSeven.png");
-    ImageIcon numberEight = new ImageIcon("Images\\numberEight.png");
+    ImageIcon numberOne = new ImageIcon("Images/numberOne.png");
+    ImageIcon numberTwo = new ImageIcon("Images/numberTwo.png");
+    ImageIcon numberThree = new ImageIcon("Images/numberThree.png");
+    ImageIcon numberFour = new ImageIcon("Images/numberFour.png");
+    ImageIcon numberFive = new ImageIcon("Images/numberFive.png");
+    ImageIcon numberSix = new ImageIcon("Images/numberSix.png");
+    ImageIcon numberSeven = new ImageIcon("Images/numberSeven.png");
+    ImageIcon numberEight = new ImageIcon("Images/numberEight.png");
     
     JLabel elapsedTimeLabel;
     int elapsedTime = 0;
     Timer timer;
 
     JLabel[] label;
-    ImageIcon bombImage = new ImageIcon("Images\\bomb.png");
+    ImageIcon bombImage = new ImageIcon("Images/bomb.png");
     JButton[] button;
     boolean[] buttonWasFlagged;
     ImageIcon buttonImage = new ImageIcon("Images\\defaultButton.png");

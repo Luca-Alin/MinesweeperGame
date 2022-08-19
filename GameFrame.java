@@ -28,9 +28,10 @@ public class GameFrame extends JFrame implements ActionListener {
             grayPanel[i] = new GrayPanel();
         }
         settingsButton = new JButton("Options");
+        
         settingsButton.addActionListener(this);
         settingsButton.setFocusable(false);
-        settingsButton.setBorder(BorderFactory.createLineBorder(Color.gray));
+        settingsButton.setBorder(BorderFactory.createLineBorder(Color.gray, 4));
         settingsButton.setFont(new Font("Arial", Font.PLAIN, 16));
         grayPanel[0].setLayout(new BorderLayout());
         grayPanel[0].add(settingsButton, BorderLayout.WEST);
@@ -39,6 +40,7 @@ public class GameFrame extends JFrame implements ActionListener {
         gamePanel = new GamePanel(rowNum, colNum, minesCount);
         gamePanel.setBorder(BorderFactory.createBevelBorder(1));
         gamePanel.restartButton.addActionListener(this);
+        gamePanel.restartButton.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
 
         this.setTitle("Minesweeper");
         this.setVisible(true);

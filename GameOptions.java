@@ -7,6 +7,9 @@ import java.awt.event.*;
 */
 
 public class GameOptions extends JFrame implements ActionListener {
+
+    ImageIcon icon = new ImageIcon("images/icon.png");
+
     int colNum = 0;
     int rowNum = 0;
     int minesCount = 0; 
@@ -17,6 +20,7 @@ public class GameOptions extends JFrame implements ActionListener {
 
     GameOptions() {
 
+        this.setIconImage(icon.getImage());
         this.setLocationRelativeTo(null);
         this.setTitle("Game Options");
         this.setSize(400, 140);

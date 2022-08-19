@@ -81,6 +81,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
 
     JLabel[] label;
     ImageIcon bombImage = new ImageIcon("Images/bomb.png");
+    ImageIcon clickedBombImage = new ImageIcon("Images/clickedBomb.png");
     JButton[] button;
     boolean[] buttonWasFlagged;
     ImageIcon buttonImage = new ImageIcon("Images\\defaultButton.png");
@@ -107,7 +108,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         flagsPlaced.setForeground(Color.red);
         flagsPlaced.setBackground(Color.black);
         flagsPlaced.setOpaque(true);
-        flagsPlaced.setBorder(grayBorder);
+        flagsPlaced.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
 
         restartButton = new JButton();
         restartButton.addMouseListener(this);
@@ -121,7 +122,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         elapsedTimeLabel.setBackground(Color.black);
         elapsedTimeLabel.setOpaque(true);
         elapsedTimeLabel.setForeground(Color.red);
-        elapsedTimeLabel.setBorder(grayBorder);
+        elapsedTimeLabel.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
         elapsedTimeLabel.setText(elapsedTime + "");
         elapsedTimeLabel.setFont(new Font("Arial", Font.BOLD, 20));
         timer = new Timer(1000, new ActionListener() {
@@ -418,7 +419,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
     boolean firstSquareWasNotCliked = true;
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (SwingUtilities.isLeftMouseButton(e) && !gameOverCheck) {
+        if (!gameOverCheck && SwingUtilities.isLeftMouseButton(e)) {
             for (int i = 0; i < rowNum * colNum; i++) {
                 if (e.getSource() == button[i] && buttonWasFlagged[i] == false) {
                     button[i].setVisible(false);
@@ -432,7 +433,9 @@ public class GamePanel extends JPanel implements MouseInputListener {
                         mapCleaner(i);
                     }
                     if (putMinesHere.contains(i)) {
+                        label[i].setIcon(clickedBombImage);
                         gameOver();
+
                     }
                     if (winCheck()) {
                         restartButton.setText("Well Done");
@@ -446,7 +449,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (SwingUtilities.isRightMouseButton(e) && !gameOverCheck) {
+        if (!gameOverCheck && SwingUtilities.isRightMouseButton(e)) {
             for (int i = 0; i < rowNum * colNum; i++) {
                 if (e.getSource() == button[i]) {
                     if (buttonWasFlagged[i] == false) {
@@ -463,7 +466,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
                 }
             }
         }
-        if (SwingUtilities.isLeftMouseButton(e) && !gameOverCheck) {
+        if (!gameOverCheck && SwingUtilities.isLeftMouseButton(e)) {
             for (int i = 0; i < rowNum * colNum; i++) {
                 if (e.getSource() == button[i]) {
                     restartButton.setIcon(scaredFace);
@@ -476,9 +479,11 @@ public class GamePanel extends JPanel implements MouseInputListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        for (int i = 0; i < rowNum * colNum; i++) {
-            if (e.getSource() == button[i]) {
-                restartButton.setIcon(happyFace);
+        if (!gameOverCheck) {
+            for (int i = 0; i < rowNum * colNum; i++) {
+                if (e.getSource() == button[i]) {
+                    restartButton.setIcon(happyFace);
+                }
             }
         }
     }
